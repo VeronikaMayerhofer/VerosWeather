@@ -1,1 +1,2 @@
 # VerosWeather
+Veros weather app
