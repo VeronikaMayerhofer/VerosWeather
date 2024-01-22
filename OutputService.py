@@ -1,4 +1,4 @@
-import WeatherApiService
+# prints the specific data on the console
 
 class OutputService:
     def __init__(self):

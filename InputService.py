@@ -2,40 +2,25 @@ import datetime
 
 from CalendarWeekService import CalendarWeekService
 
+# fetches user input from console
 
 class InputService:
     def __init__(self):
         pass
 
-    def retrieve_daily_input_data_from_user(self, calendar_week_service: CalendarWeekService) -> tuple[datetime.date, datetime.date, datetime,]:
+    def retrieve_input_data_from_user(self, calendar_week_service: CalendarWeekService) -> tuple[datetime.date, datetime.date, datetime,]:
         # default values
         # coordinates for Wuerzburg, Germany
         longitude = 9.9
         latitude = 49.8
+
         calendar_week = 4
 
         # retrieve longitude & latitude from user
-        #longitude, latitude = self.retrieve_longitude_latitude()
+        longitude, latitude = self.retrieve_longitude_latitude()
 
         # retrieve start and end date from user
         start_date, end_date = self.retrieve_start_and_end_date(calendar_week_service)
-
-        # retrieve daily weather variable (specifies the desired data)
-        daily_weather_variable = self.retrieve_daily_weather_variable()
-
-        return start_date, end_date, daily_weather_variable, longitude, latitude
-
-    def retrieve_hourly_input_data_from_user(self, calendar_week_service: CalendarWeekService) -> tuple[datetime.date, datetime.date, datetime,]:
-        # default values
-        # coordinates for Wuerzburg, Germany
-        longitude = 9.9
-        latitude = 49.8
-
-        # retrieve longitude & latitude from user
-        #longitude, latitude = self.retrieve_longitude_latitude()
-
-        # retrieve start and end date from user
-        start_date, end_date = self.retrieve_start_and_end_date()
 
         # retrieve daily weather variable (specifies the desired data)
         daily_weather_variable = self.retrieve_daily_weather_variable()

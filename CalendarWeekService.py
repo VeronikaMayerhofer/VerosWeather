@@ -1,5 +1,7 @@
 from datetime import datetime, date, timedelta
 
+# computes the start and end date of a given calendar week
+
 class CalendarWeekService:
     def __init__(self):
         pass

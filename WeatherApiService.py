@@ -3,6 +3,8 @@ import urllib.request
 from datetime import datetime, date, timedelta
 import numpy as np
 
+# fetches data from weather api
+
 class WeatherApiService:
     def __init__(self, base_url: str):
         self.base_url = base_url
