@@ -1,8 +1,36 @@
 # prints the specific data on the console
+from matplotlib import pyplot as plt
+import numpy as np
 
 class OutputService:
     def __init__(self):
         pass
+
+    def plot_hourly_weather_variable(self, hourly_weather_data: np.ndarray, hourly_weather_variable: str):
+
+        x = hourly_weather_data[:, 1]
+        y = hourly_weather_data[:, 0]
+        plt.plot(y, x, color='g', linewidth=3)
+        plt.tick_params(axis="x", labelrotation=-15)  # rotate the labels
+
+        match hourly_weather_variable:
+            case 'temperature_2m':
+                text = 'Temperature'
+                plt.ylabel('°C', rotation=0)
+            case 'apparent_temperature':
+                text = 'Apparent Temperature'
+                plt.ylabel('°C', rotation=0)
+            case 'relative_humidity':
+                text = 'Relative Humidity'
+            case 'precipitation probability':
+                text = 'Precipitation Probability'
+            case 'rain':
+                text = 'Rain'
+            case 'snowfall':
+                text = 'Snowfall'
+        plt.title(text)
+        plt.show()
+
 
     def print_daily_weather_variable(self, daily_weather_data, daily_weather_variable: str):
         match daily_weather_variable:

@@ -17,16 +17,70 @@ class InputService:
         calendar_week = 4
 
         # retrieve longitude & latitude from user
-        longitude, latitude = self.retrieve_longitude_latitude()
-
+        #longitude, latitude = self.retrieve_longitude_latitude()
+        location = [latitude, longitude]
         # retrieve start and end date from user
         start_date, end_date = self.retrieve_start_and_end_date(calendar_week_service)
 
         # retrieve daily weather variable (specifies the desired data)
         daily_weather_variable = self.retrieve_daily_weather_variable()
 
-        return start_date, end_date, daily_weather_variable, longitude, latitude
+        # retrieve hourly weather variable
+        hourly_weather_variable = self.retrieve_hourly_weather_variable()
 
+        return start_date, end_date, daily_weather_variable, hourly_weather_variable, location
+
+    def retrieve_daily_weather_variable(self):
+        print("Inset the desired daily weather variable. You can choose between the following: \n 1: sunrise \n "
+              "2: sunset \n 3: daylight duration \n 4: sunshine duration \n 5: maximum temperature \n "
+              "6: minimum temperature.")
+        weather_input = input()
+        daily_weather_variable = self.retrieve_daily_weather_variable_from_input(weather_input)
+        return daily_weather_variable
+
+    def retrieve_daily_weather_variable_from_input(self, input: str) -> str:
+        match input:
+            case '1' | "sunrise":
+                daily_weather_variable = 'sunrise'
+            case '2' | "sunset":
+                daily_weather_variable = 'sunset'
+            case '3' | "daylight duration":
+                daily_weather_variable = 'daylight_duration'
+            case '4' | "sunshine duration":
+                daily_weather_variable = 'sunshine_duration'
+            case '5' | "maximum temperature":
+                daily_weather_variable = 'temperature_2m_max'
+            case '6' | "minimum temperature":
+                daily_weather_variable = 'temperature_2m_min'
+            case _:
+                raise Exception("Invalid input.")
+        return daily_weather_variable
+
+    def retrieve_hourly_weather_variable(self):
+        print("Inset the desired hourly weather variable. You can choose between the following: \n 1: temperature \n "
+              "2: apparent temperature \n 3: relative humidity \n 4: precipitation probability \n 5: rain \n "
+              "6: snowfall.")
+        weather_input = input()
+        hourly_weather_variable = self.retrieve_hourly_weather_variable_from_input(weather_input)
+        return hourly_weather_variable
+
+    def retrieve_hourly_weather_variable_from_input(self, input: str) -> str:
+        match input:
+            case '1' | "temperature":
+                hourly_weather_variable = 'temperature_2m'
+            case '2' | "apparent temperature":
+                hourly_weather_variable = 'apparent_temperature'
+            case '3' | "relative humidity":
+                hourly_weather_variable = 'relative_humidity_2m'
+            case '4' | "precipitation probability":
+                hourly_weather_variable = 'precipitation_probability'
+            case '5' | "rain":
+                hourly_weather_variable = 'rain'
+            case '6' | "snowfall":
+                hourly_weather_variable = 'snowfall'
+            case _:
+                raise Exception("Invalid input.")
+        return hourly_weather_variable
 
     def retrieve_longitude_latitude(self):
         print("Insert longitude and latitude:")
@@ -67,28 +121,4 @@ class InputService:
         end_date = end_date.strftime('%Y-%m-%d')
         return start_date, end_date
 
-    def retrieve_daily_weather_variable(self):
-        print("Inset the desired daily weather variable. You can choose between the following: \n 1: 'sunrise' \n "
-              "2: 'sunset' \n 3: 'daylight duration' \n 4: 'sunshine duration' \n 5: maximum temperature \n "
-              "6: minimum temperature.")
-        weather_input = input()
-        daily_weather_variable = self.retrieve_daily_weather_variable_from_input(weather_input)
-        return daily_weather_variable
 
-    def retrieve_daily_weather_variable_from_input(self, input: str) -> str:
-        match input:
-            case '1':
-                daily_weather_variable = 'sunrise'
-            case '2':
-                daily_weather_variable = 'sunset'
-            case '3' | "daylight duration":
-                daily_weather_variable = 'daylight_duration'
-            case '4' | "sunshine duration":
-                daily_weather_variable = 'sunshine_duration'
-            case '5' | "maximum temperature":
-                daily_weather_variable = 'temperature_2m_max'
-            case '6' | "minimum temperature":
-                daily_weather_variable = 'temperature_2m_min'
-            case _:
-                raise Exception("Invalid input.")
-        return daily_weather_variable
