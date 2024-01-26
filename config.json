@@ -1,0 +1,113 @@
+{
+  "weather_variables": {
+    "Temperature": {
+      "url_name": "temperature_2m",
+      "name": "Temperature",
+      "hourly": true,
+      "unit": "\u00b0C",
+      "max_value": 40,
+      "min_value": -20
+    },
+    "Apparent Temperature": {
+      "url_name": "apparent_temperature",
+      "name": "Apparent Temperature",
+      "hourly": true,
+      "unit": "\u00b0C",
+      "max_value": 40,
+      "min_value": -20
+    },
+    "Relative Humidity": {
+      "url_name": "relative_humidity_2m",
+      "name": "Relative Humidity",
+      "hourly": true,
+      "unit": "%",
+      "max_value": 101,
+      "min_value": 50
+    },
+    "Precipitation Probability": {
+      "url_name": "precipitation_probability",
+      "name": "Precipitation Probability",
+      "hourly": true,
+      "unit": "%",
+      "max_value": 101,
+      "min_value": 0
+    },
+    "Rain": {
+      "url_name": "rain",
+      "name": "Rain",
+      "hourly": true,
+      "unit": "mm    ",
+      "max_value": 6,
+      "min_value": 0
+    },
+    "Snow": {
+      "url_name": "snowfall",
+      "name": "Snow",
+      "hourly": true,
+      "unit": "cm",
+      "max_value": 10,
+      "min_value": 0
+    }
+  },
+  "locations": {
+    "Wuerzburg": ["49.8", "10.0"],
+    "Oslo": ["59.9", "10.8"],
+    "Heilsbronn": ["49.3", "10.8"],
+    "Halsbach, Lohr am Main": ["50.0", "9.7"],
+    "Ho-Chi-Minh City": ["10.8", "106.7"]
+  },
+
+  "unused": {
+        "Minimum Temperature": {
+      "url_name": "temperature_2m_min",
+      "name": "Minimum Temperature",
+      "hourly": false,
+      "unit": "\u00b0C",
+      "max_value": 40,
+      "min_value": -20
+    },
+    "Maximum Temperature": {
+      "url_name": "temperature_2m_max",
+      "name": "Maximum Temperature",
+      "hourly": false,
+      "unit": "\u00b0C",
+      "max_value": 40,
+      "min_value": -20
+    },
+    "Sunrise": {
+      "url_name": "sunrise",
+      "name": "Sunrise",
+      "hourly": false,
+      "unit": "GMT+1",
+      "max_value": "03:45",
+      "min_value": "09:30"
+    },
+    "Sunset": {
+      "url_name": "sunset",
+      "name": "Sunset",
+      "hourly": false,
+      "unit": "GMT+1",
+      "max_value": "15:05",
+      "min_value": "22:50"
+    },
+    "Daylight Duration": {
+      "url_name": "daylight_duration",
+      "name": "Daylight Duration",
+      "hourly": false,
+      "unit": "h",
+      "max_value": 24,
+      "min_value": 0
+    },
+    "Sunshine Duration": {
+      "url_name": "sunshine_duration",
+      "name": "Sunshine Duration",
+      "hourly": false,
+      "unit": "h",
+      "max_value": 24,
+      "min_value": 0
+    }
+  }
+}
+
+
+
