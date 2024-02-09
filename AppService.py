@@ -5,10 +5,11 @@ from OutputService import OutputService
 from WeatherApiService import WeatherApiService
 from CalendarWeekService import CalendarWeekService
 
+
 # connects the other services to obtain desired weather data
 
 class AppService:
-    def __init__(self,  url: str):
+    def __init__(self, url: str):
         self.input_service = InputService()
         self.output_service = OutputService()
         self.calendar_week_service = CalendarWeekService()
@@ -19,8 +20,9 @@ class AppService:
             self.calendar_week_service)
 
         daily_weather_data = self.weather_api_service.get_daily_data(location, start_date, end_date,
-                                                                daily_weather_variable)
-        hourly_weather_data = self.weather_api_service.get_hourly_data(location, start_date, end_date, hourly_weather_variable)
+                                                                     daily_weather_variable)
+        hourly_weather_data = self.weather_api_service.get_hourly_data(location, start_date, end_date,
+                                                                       hourly_weather_variable)
         self.output_service.print_daily_weather_variable(daily_weather_data, daily_weather_variable)
         self.output_service.plot_hourly_weather_variable(hourly_weather_data, hourly_weather_variable)
         return daily_weather_data
@@ -30,8 +32,8 @@ class AppService:
             self.calendar_week_service)
 
         hourly_weather_data = self.weather_api_service.get_hourly_data(latitude, longitude, start_date, end_date,
-                                                                     hourly_weather_variable)
-        plot_hourly_weather_variable(hourly_weather_data, daily_weather_variable)
+                                                                       hourly_weather_variable)
+        # plot_hourly_weather_variable(hourly_weather_data, daily_weather_variable)
         return hourly_weather_data
 
     def initialize_services(self, url: str):
